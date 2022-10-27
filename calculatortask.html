@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+             height: 300px;
+             width: 300px;
+             margin: auto;
+             margin-top: 60px;
+             padding: 30px;
+             background-color: black;
+             border-radius: 10px;
+        }
+        #result {
+            width: 100%;
+            height: 60px;
+            resize: none;
+        }
+        button {
+            border-radius: 10px;
+            width: 60px;
+            padding: 12px;
+            border: none;
+            margin: 8px 6px;
+            background-color: bisque;
+            font-size: 16px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <textarea id="result"></textarea>
+          </div>
+            <div class="row1">
+              <button onclick="loaddt(7)">7</button>
+              <button onclick="loaddt(8)">8</button>
+              <button onclick="loaddt(9)">9</button>
+              <button onclick="loaddt('+')">+</button>   
+            </div>
+
+           <div class="row2">
+            <button onclick="loaddt(4)">4</button>
+            <button onclick="loaddt(5)">5</button>
+            <button onclick="loaddt(6)">6</button>
+            <button onclick="loaddt('-')">-</button>   
+           </div>
+
+          <div class="row3">
+           <button onclick="loaddt(1)">1</button>
+           <button onclick="loaddt(2)">2</button>
+           <button onclick="loaddt(3)">3</button>
+           <button onclick="loaddt('*')">*</button>   
+           </div>
+
+         <div class="row4">
+            <button onclick="calculate()">=</button>
+            <button onclick="loaddt(0)">0</button>
+            <button onclick="cleardt()">Clear</button>
+            <button onclick="loaddt('/')">/</button>   
+         </div>
+
+    </div>
+
+
+    <script>
+        let str="";
+        function loaddt(x){
+                str = str+x;
+                document.getElementById("result").innerHTML=str;
+        }
+        function calculate() {
+            document.getElementById("result").innerHTML= eval(str);
+            str="";
+        }
+        function cleardt() {
+            document.getElementById("result").innerHTML="";
+            str="";
+        }
+        
+    </script>
+    
+</body>
+</html>

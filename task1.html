@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+
+</head>
+<body>
+    <img src="paris.jpg" width="300" width="300" id="myimg">
+    <br>
+    <br>
+    <button onclick="tree()" style="padding: 15px; background-color: green; border-radius: 5px;
+    border-color: transparent ;color: aliceblue;">Trees</button>
+    <button onclick="hill()" style="padding: 15px; background-color: rgb(70, 11, 16); border-color: transparent; border-radius: 5px; color: white;">Hills</button>
+    <button onclick="river()" style="padding: 15px; background-color: cadetblue; border-color: transparent; border-radius: 5px; color: white;";>Rivers</button>
+    <button onclick="flower()" style="padding: 15px; background-color: palevioletred; border-color: transparent; border-radius: 5px; color: white;">Flowers</button>
+
+
+    
+
+    <script>
+        function tree() {
+            document.getElementById("myimg").src= "img_forest.jpg";
+        }
+        function hill() {
+            document.getElementById("myimg").src= "img_mountains.jpg";
+        }
+        function river() {
+            document.getElementById("myimg").src= "img_river.jpg";
+        }
+        function flower() {
+           document.getElementById("myimg").src= "img_flower.jpg";
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Loops Task</title>
+</head>
+
+<body>
+   <h2>Loops Task</h2>
+   <script>
+      //1- Natural Numbers
+      //  while
+      var i = 1;
+      while (i <= 10) {
+         console.log("i=" + i);
+         i++;
+      }
+      // do while 
+      var i = 1;
+      do {
+         console.log("i=" + i);
+         i++;
+
+      } while (i <= 10);
+      // for
+      for (let i = 1; i <= 10; i++) {
+         console.log("i=" + i);
+
+      }
+
+      //2- Natural number in reverse 
+      //   while
+      var i = 10;
+      while (i >= 1) {
+         console.log("i=" + i);
+         i--;
+      }
+
+      // do while 
+      var i = 10;
+      do {
+         console.log("i=" + i);
+         i--;
+
+      } while ((i >= 1));
+      // for 
+      for (let i = 10; i >= 1; i--)
+         console.log("i=" + i)
+
+      //3- All Alphabet from A to Z (Capital) 
+     // while
+       var i= 65;
+       while (i<= 90) {
+        console.log("Letter " + String.fromCharCode(i));
+        i++;
+    }
+
+   // do while
+    var i= 65;
+     do {
+      console.log("Letter " + String.fromCharCode(i));
+        i++;
+     } while (i<=90);
+
+  // for
+      for (var i = 65; (i <= 90); i++) {
+      console.log("Letter " + String.fromCharCode(i));
+     }
+
+// All Alphabet from a to z (Small) 
+ // while
+     var i= 97;
+       while(i<= 122) {
+         console.log("Letter " + String.fromCharCode(i));
+         i++;
+       }
+// do while 
+    var i= 97
+      do {
+         console.log("Letter " + String.fromCharCode(i));
+         i++;  
+      } while (i<=122);
+// for
+  for ( i= 97;i<= 122;i++){
+   console.log("Letter " + String.fromCharCode(i));
+
+  }
+
+      //4- Even Numbers between 1-100  
+      // while  
+      var i = 1;
+      while (i <= 100) {
+         if (i % 2 == 0) {
+            console.log("Even num is " + i);
+         }
+         i++;
+      }
+
+      // do while
+      var i = 1;
+      do {
+         if (i % 2 == 0) {
+            console.log("Even num is " + i)
+         }
+         i++
+
+      } while (i <= 100);
+      // for 
+      for (let i = 1; i <= 100; i++) {
+         if (i % 2 == 0)
+
+            console.log("Even num is " + i)
+      }
+
+      //5- Odd Numbers between 1-100
+      // while
+      var i = 1;
+      while (i <= 100) {
+         if (i % 2 != 0) {
+            console.log("Odd num is " + i);
+         }
+         i++;
+      }
+
+      // do while 
+      var i = 1;
+      do {
+         if (i % 2 != 0) {
+            console.log("Odd num is " + i);
+         }
+         i++
+      } while (i <= 100);
+
+      // for
+      for (i = 1; i <= 100; i++) {
+         if (i % 2 != 0)
+            console.log("Odd num is " + i)
+      }
+
+
+      // 6- Sum of all Natural Numbers between 1 to n
+      // while
+      var n = 0, sum = 0;
+      while (n <= 10) {
+         sum = sum + n;
+         n++;
+      }
+      console.log("Sum of natural number is:" + sum);
+
+      // do while
+      var n = 0, sum = 0;
+      do {
+         if (n <= 10) {
+            sum = sum + n
+         }
+         n++;
+
+      } while (n <= 10);
+      console.log("Sum of natural number is:" + sum);
+
+      // for 
+      var n = 0, sum = 0;
+      for (n = 0; n <= 10; n++) {
+         sum = sum + n;
+      }
+      console.log("Sum of natural number is:" + sum);
+
+
+
+
+      // 7- Sum of all Even numbers
+      // while
+
+      var i = 2, sum = 0;
+      while (i <= 10) {
+         if (i % 2 == 0) {
+            sum = sum + i;
+
+         }
+         i++;
+      }
+      console.log("Sum of even Number is:" + sum);
+
+      // do while
+      var i = 2, sum = 0;
+      do {
+         if (i % 2 == 0) {
+            sum = sum + i;
+         }
+         i++;
+      } while (i <= 10);
+      console.log("Sum of even number is:" + sum);
+
+      // for 
+      var i = 2, sum = 0;
+      for (let i = 2; i <= 10; i++) {
+
+         if (i % 2 == 0) {
+            sum = sum + i;
+
+         }
+      }
+      console.log("Sum of even number is:" + sum);
+
+      //8- sum of all Odd Numbers 
+      // while 
+
+      var i = 3, sum = 0;
+      while (i <= 10) {
+         if (i % 2 != 0) {
+            sum = sum + i;
+         }
+         i++;
+      }
+      console.log("Sum of odd number:" + sum);
+
+
+      // do while
+      var i = 3, sum = 0;
+      do {
+         if (i % 2 != 0) {
+            sum = sum + i;
+
+         }
+         i++;
+      } while (i <= 10);
+      console.log("Sum of odd number:" + sum);
+
+      // for
+      var i = 3, sum = 0;
+      for (let i = 3; i <= 10; i++) {
+
+         if (i % 2 != 0) {
+            sum = sum + i;
+
+         }
+      }
+      console.log("Sum of odd number:" + sum);
+
+      //10-Multipilication of any number
+
+      // while
+      //   let num=10;
+      //     while (i<=10) { 
+      //         console.log(num*i);
+      //         i++
+      //    }
+
+      // do while 
+      let num = 10, j = 1;
+      do {
+         console.log(num * j);
+         j++;
+      }
+      while (j <= 10);
+
+
+// for
+   // let num=10;
+   //    for(i=1; i<=10; i++) {
+   //       console.log(num*i);
+   //    }
+
+
+
+
+   </script>
+
+
+</body>
+
+</html>

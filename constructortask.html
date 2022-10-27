@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor Task</title>
+</head>
+<body>
+    <h1>Constructor Task</h1>
+    <script>
+        class Staff{
+            constructor(code, name) {
+                console.log("Staff ~ code is "+ code + "Name is " +name);
+            };
+        }
+        class Teacher extends Staff {
+            constructor(code, name, subject) {
+                super(code, name);
+                console.log("Teacher will teach: " + subject);
+            };
+        }
+        class Typist extends Staff {
+            constructor(code, name, speed){
+                super(code, name);
+                console.log("Typist types at a speed of: " + speed + "wpm");
+            };
+        }
+        class Regular extends Typist {
+            constructor(code, name, speed, payment){
+                super(code, name, speed);
+                console.log("payment for regular typer is: " + payment);
+            };
+        }
+        class Permanent extends Typist {
+              constructor(code, name, speed, salary){
+                super(code, name, speed);
+                console.log("Salary of Permanent typer is: "+ salary);
+              };
+        }
+        class Officer extends Staff {
+            constructor(code, name, grade){
+                super(code, name);
+                console.log("Grade of the Officer is: " + grade);
+            };
+        }
+        console.log(" ");
+
+        console.log("Teacher Details");
+        let tech = new Teacher(101, "ABC", "English");
+
+        console.log("Regular Details");
+        let reg = new Regular(102, "DEF", 25, 15,000);
+
+        let prm = new Permanent(102, "GHI", 50, 25,000);
+        console.log("Officer");
+        let off = new Officer(103, "JKL", "B+");
+    </script>
+    
+</body>
+</html>

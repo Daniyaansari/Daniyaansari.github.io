@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Jquery Link-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+    <title>Regular Expression Task</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: lightgrey;
+        }
+
+        #valid {
+            display: none;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 10px 10px;
+        }
+
+        .container {
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+            /* margin-top: 70px; */
+        }
+
+        label {
+            font-size: 18px;
+        }
+
+        input {
+            width: 100%;
+            height: 30px;
+            margin: 15px 0;
+        }
+
+        .err {
+            color: red;
+        }
+
+        #btnupdate {
+            display: none;
+        }
+
+        .form-control {
+            width: 160px;
+            height: 40px;
+
+        }
+
+        #showrst {
+            width: max-content;
+        }
+
+        table,
+        tr,
+        th,
+        td {
+            border: 2px solid gray;
+            padding: 15px;
+            border-collapse: collapse;  
+            color: black;
+            background-color: white;
+            overflow: auto;
+        }
+
+       
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-4 mt-4">
+                <input type="date" id="enterdob" class="form-control float-start">
+                <p id="showrst">&nbsp</p>
+            </div>
+            <div class="col-4 mt-5">
+                <button type="button" class="btn btn-warning ms-5" onclick="showform()">Verify
+                </button>
+            </div>
+        </div>
+
+        <div class="container" id="valid">
+            <h2>Validation Form</h2>
+            <!-- name -->
+            <label for="name">Enter Your Name</label>
+            <input type="text" id="name" onkeyup="checkname(this.value)"><br>
+            <span class="err" id="namerr"></span><br>
+
+            <!-- mobile no -->
+            <label for="name">Enter Mobile Number</label>
+            <input type="text" id="number" onkeyup="checkmno(this.value)"><br>
+            <span class="err" id="mnoerr"></span><br>
+
+            <!-- email id -->
+            <label for="name">Enter Email Id</label>
+            <input type="text" id="email" onkeyup="checkmail(this.value)"><br>
+            <span class="err" id="emailerr"></span><br>
+
+            <!-- password -->
+            <label for="name">Enter Password</label>
+            <input type="password" id="pass" onkeyup="pass(this.value)"><br>
+            <span class="err" id="passerr"></span><br>
+
+            <!-- confirm password -->
+            <label for="name">Confirm Password</label>
+            <input type="password" id="cpass" onkeyup="ccpass()"><br>
+            <span class="err" id="cfmpass"></span><br>
+
+            <!-- State -->
+            <div class="loc1">
+                <label for="" id="">Select your State</label>
+                <select name="state" id="state" onchange="fill(this.value)">
+                </select>
+                <br><br>
+
+                <label for="City">City</label>
+                <select id="sc1"></select>
+                <br>
+                <br>
+
+                <button type="button" id="btnsubmit" class="btn btn-warning ms-5" onclick="add()">Submit</button>
+
+                <button onclick="updateuser()" id="btnupdate">Update</button>
+                <br>
+                <br>
+            </div>
+
+            <div id="show">
+                <h2>Filterable Table</h2>
+                <input type="text" id="myinput" placeholder="Search...">
+                <p></p>
+                <table class="table" id="DataTable">
+                    <thead>
+                        <th>Fullname</th>
+                        <th>Mobile Number</th>
+                        <th>Email-ID</th>
+                        <th>State</th>
+                        <th>City</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </thead>
+                    <tbody id="loadData"></tbody>
+                </table>
+                <br><br><br>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        //Age verification
+        function showform() {
+            let dob = document.getElementById("enterdob").value;
+            dob = new Date(dob);
+            let current_date = new Date();
+            let current_year = current_date.getFullYear();
+            console.log(current_year);
+            let dob_year = dob.getFullYear();
+            let age = current_year - dob_year;
+
+            if (age >= 18) {
+                document.getElementById('showrst').innerHTML = "Congratulations! you are Eligible.";
+                document.getElementById('valid').style.display = "block";
+
+            }
+            else {
+                document.getElementById('showrst').innerHTML = "Your are not Eligible";
+                document.getElementById('valid').style.display = "none";
+            }
+        }
+
+        // name
+        function checkname(name) {
+            let namepatt = /^[a-zA-Z\. ]+$/;
+            if (namepatt.test(name)) {
+                document.getElementById("namerr").innerHTML = "Valid Name";
+                document.getElementById("namerr").style.color = "green";
+
+            } else {
+                document.getElementById("namerr").innerHTML = "Invalid Name";
+                document.getElementById("namerr").style.color = "red";
+            }
+        }
+
+        // mobile no 
+        function checkmno(mob) {
+            // let mobpatt = /^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$/;
+            let mobpatt = /[789][0-9]{9}/;
+            if (mobpatt.test(mob)) {
+                document.getElementById("mnoerr").innerHTML = "Valid Mobile Number";
+                document.getElementById("mnoerr").style.color = "green";
+
+            } else {
+                document.getElementById("mnoerr").innerHTML = "In Valid Mobile Number";
+                document.getElementById("mnoerr").style.color = "red";
+            }
+        }
+
+        // email id
+        function checkmail(email) {
+            let emailpatt = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
+            if (emailpatt.test(email)) {
+                document.getElementById("emailerr").innerHTML = "Vaild Email";
+                document.getElementById("emailerr").style.color = "green";
+
+            } else {
+                document.getElementById("emailerr").innerHTML = "In Vaild Email";
+                document.getElementById("emailerr").style.color = "red";
+
+            }
+        }
+
+        // password 
+        function pass(password) {
+            let passpatt = /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
+            if (passpatt.test(password)) {
+                document.getElementById("passerr").innerHTML = "Valid Password";
+                document.getElementById("passerr").style.color = "green";
+            } else {
+                document.getElementById("passerr").innerHTML = "Invalid Password";
+                document.getElementById("passerr").style.color = "red";
+
+            }
+        }
+
+        // confirm Password
+        function ccpass() {
+            pword = document.getElementById("pass").value;
+            cword = document.getElementById("cpass").value;
+
+            if (pword == cword) {
+                document.getElementById("cfmpass").innerHTML = "Password Has Matched ";
+                document.getElementById("cfmpass").style.color = "green";
+            } else {
+                document.getElementById("cfmpass").innerHTML = "Please Check Password ";
+                document.getElementById("cfmpass").style.color = "red";
+            }
+        }
+
+        //cities and states
+        let statearr = {
+            "Andaman and Nicobar Islands": ["Port Blair*"],
+            "Andhra Pradesh": ["Adoni", "Amalapuram", "Anakapalle", "Anantapur", "Bapatla", "Bheemunipatnam", "Bhimavaram", "Bobbili", "Chilakaluripet", "Chirala", "Chittoor", "Dharmavaram", "Eluru", "Gooty", "Gudivada", "Gudur", "Guntakal", "Guntur", "Hindupur", "Jaggaiahpet", "Jammalamadugu", "Kadapa", "Kadiri", "Kakinada", "Kandukur", "Kavali", "Kovvur", "Kurnool", "Macherla", "Machilipatnam", "Madanapalle", "Mandapeta", "Markapur", "Nagari", "Naidupet", "Nandyal", "Narasapuram", "Narasaraopet", "Narsipatnam", "Nellore", "Nidadavole", "Nuzvid", "Ongole", "Palacole", "Palasa Kasibugga", "Parvathipuram", "Pedana", "Peddapuram", "Pithapuram", "Ponnur", "Proddatur", "Punganur", "Puttur", "Rajahmundry", "Rajam", "Rajampet", "Ramachandrapuram", "Rayachoti", "Rayadurg", "Renigunta", "Repalle", "Salur", "Samalkot", "Sattenapalle", "Srikakulam", "Srikalahasti", "Srisailam Project (Right Flank Colony) Township", "Sullurpeta", "Tadepalligudem", "Tadpatri", "Tanuku", "Tenali", "Tirupati", "Tiruvuru", "Tuni", "Uravakonda", "Venkatagiri", "Vijayawada", "Vinukonda", "Visakhapatnam", "Vizianagaram", "Yemmiganur", "Yerraguntla"],
+            "Arunachal Pradesh": ["Naharlagun", "Pasighat"],
+            "Assam": ["Barpeta", "Bongaigaon City", "Dhubri", "Dibrugarh", "Diphu", "Goalpara", "Guwahati", "Jorhat", "Karimganj", "Lanka", "Lumding", "Mangaldoi", "Mankachar", "Margherita", "Mariani", "Marigaon", "Nagaon", "Nalbari", "North Lakhimpur", "Rangia", "Sibsagar", "Silapathar", "Silchar", "Tezpur", "Tinsukia"],
+            "Bihar": ["Araria", "Arrah", "Arwal", "Asarganj", "Aurangabad", "Bagaha", "Barh", "Begusarai", "Bettiah", "Bhabua", "Bhagalpur", "Buxar", "Chhapra", "Darbhanga", "Dehri-on-Sone", "Dumraon", "Forbesganj", "Gaya", "Gopalganj", "Hajipur", "Jamalpur", "Jamui", "Jehanabad", "Katihar", "Kishanganj", "Lakhisarai", "Lalganj", "Madhepura", "Madhubani", "Maharajganj", "Mahnar Bazar", "Makhdumpur", "Maner", "Manihari", "Marhaura", "Masaurhi", "Mirganj", "Mokameh", "Motihari", "Motipur", "Munger", "Murliganj", "Muzaffarpur", "Narkatiaganj", "Naugachhia", "Nawada", "Nokha", "Patna*", "Piro", "Purnia", "Rafiganj", "Rajgir", "Ramnagar", "Raxaul Bazar", "Revelganj", "Rosera", "Saharsa", "Samastipur", "Sasaram", "Sheikhpura", "Sheohar", "Sherghati", "Silao", "Sitamarhi", "Siwan", "Sonepur", "Sugauli", "Sultanganj", "Supaul", "Warisaliganj"],
+            "Chandigarh": ["Chandigarh*"],
+            "Chhattisgarh": ["Ambikapur", "Bhatapara", "Bhilai Nagar", "Bilaspur", "Chirmiri", "Dalli-Rajhara", "Dhamtari", "Durg", "Jagdalpur", "Korba", "Mahasamund", "Manendragarh", "Mungeli", "Naila Janjgir", "Raigarh", "Raipur*", "Rajnandgaon", "Sakti", "Tilda Newra"],
+            "Dadra and Nagar Haveli": ["Silvassa*"],
+            "Delhi": ["Delhi", "New Delhi*"],
+            "Goa": ["Mapusa", "Margao", "Marmagao", "Panaji"],
+            "Gujarat": ["Adalaj", "Ahmedabad", "Amreli", "Anand", "Anjar", "Ankleshwar", "Bharuch", "Bhavnagar", "Bhuj", "Chhapra", "Deesa", "Dhoraji", "Godhra", "Jamnagar", "Kadi", "Kapadvanj", "Keshod", "Khambhat", "Lathi", "Limbdi", "Lunawada", "Mahesana", "Mahuva", "Manavadar", "Mandvi", "Mangrol", "Mansa", "Mahemdabad", "Modasa", "Morvi", "Nadiad", "Navsari", "Padra", "Palanpur", "Palitana", "Pardi", "Patan", "Petlad", "Porbandar", "Radhanpur", "Rajkot", "Rajpipla", "Rajula", "Ranavav", "Rapar", "Salaya", "Sanand", "Savarkundla", "Sidhpur", "Sihor", "Songadh", "Surat", "Talaja", "Thangadh", "Tharad", "Umbergaon", "Umreth", "Una", "Unjha", "Upleta", "Vadnagar", "Vadodara", "Valsad", "Vapi", "Vapi", "Veraval", "Vijapur", "Viramgam", "Visnagar", "Vyara", "Wadhwan", "Wankaner"],
+            "Haryana": ["Bahadurgarh", "Bhiwani", "Charkhi Dadri", "Faridabad", "Fatehabad", "Gohana", "Gurgaon", "Hansi", "Hisar", "Jind", "Kaithal", "Karnal", "Ladwa", "Mahendragarh", "Mandi Dabwali", "Narnaul", "Narwana", "Palwal", "Panchkula", "Panipat", "Pehowa", "Pinjore", "Rania", "Ratia", "Rewari", "Rohtak", "Safidon", "Samalkha", "Sarsod", "Shahbad", "Sirsa", "Sohna", "Sonipat", "Taraori", "Thanesar", "Tohana", "Yamunanagar"],
+            "Himachal Pradesh": ["Mandi", "Nahan", "Palampur", "Shimla*", "Solan", "Sundarnagar"],
+            "Jammu and Kashmir": ["Anantnag", "Baramula", "Jammu", "Kathua", "Punch", "Rajauri", "Sopore", "Srinagar*", "Udhampur"],
+            "Jharkhand": ["Adityapur", "Bokaro Steel City", "Chaibasa", "Chatra", "Chirkunda", "Medininagar (Daltonganj)", "Deoghar", "Dhanbad", "Dumka", "Giridih", "Gumia", "Hazaribag", "Jamshedpur", "Jhumri Tilaiya", "Lohardaga", "Madhupur", "Mihijam", "Musabani", "Pakaur", "Patratu", "Phusro", "Ramgarh", "Ranchi*", "Sahibganj", "Saunda", "Simdega", "Tenu dam-cum-Kathhara"],
+            "Karnataka": ["Adyar", "Afzalpur", "Arsikere", "Athni", "Bengaluru", "Belagavi", "Ballari", "Chikkamagaluru", "Davanagere", "Gokak", "Hubli-Dharwad", "Karwar", "Kolar", "Lakshmeshwar", "Lingsugur", "Maddur", "Madhugiri", "Madikeri", "Magadi", "Mahalingapura", "Malavalli", "Malur", "Mandya", "Mangaluru", "Manvi", "Mudalagi", "Mudabidri", "Muddebihal", "Mudhol", "Mulbagal", "Mundargi", "Nanjangud", "Nargund", "Navalgund", "Nelamangala", "Pavagada", "Piriyapatna", "Puttur", "Rabkavi Banhatti", "Raayachuru", "Ranebennuru", "Ramanagaram", "Ramdurg", "Ranibennur", "Robertson Pet", "Ron", "Sadalagi", "Sagara", "Sakaleshapura", "Sindagi", "Sanduru", "Sankeshwara", "Saundatti-Yellamma", "Savanur", "Sedam", "Shahabad", "Shahpur", "Shiggaon", "Shikaripur", "Shivamogga", "Surapura", "Shrirangapattana", "Sidlaghatta", "Sindhagi", "Sindhnur", "Sira", "Sirsi", "Siruguppa", "Srinivaspur", "Tarikere", "Tekkalakote", "Terdal", "Talikota", "Tiptur", "Tumkur", "Udupi", "Vijayapura", "Wadi", "Yadgir"],
+            "Karnatka": ["Mysore"],
+            "Kerala": ["Adoor", "Alappuzha", "Attingal", "Chalakudy", "Changanassery", "Cherthala", "Chittur-Thathamangalam", "Guruvayoor", "Kanhangad", "Kannur", "Kasaragod", "Kayamkulam", "Kochi", "Kodungallur", "Kollam", "Kottayam", "Kozhikode", "Kunnamkulam", "Malappuram", "Mattannur", "Mavelikkara", "Mavoor", "Muvattupuzha", "Nedumangad", "Neyyattinkara", "Nilambur", "Ottappalam", "Palai", "Palakkad", "Panamattom", "Panniyannur", "Pappinisseri", "Paravoor", "Pathanamthitta", "Peringathur", "Perinthalmanna", "Perumbavoor", "Ponnani", "Punalur", "Puthuppally", "Koyilandy", "Shoranur", "Taliparamba", "Thiruvalla", "Thiruvananthapuram", "Thodupuzha", "Thrissur", "Tirur", "Vaikom", "Varkala", "Vatakara"],
+            "Madhya Pradesh": ["Alirajpur", "Ashok Nagar", "Balaghat", "Bhopal", "Ganjbasoda", "Gwalior", "Indore", "Itarsi", "Jabalpur", "Lahar", "Maharajpur", "Mahidpur", "Maihar", "Malaj Khand", "Manasa", "Manawar", "Mandideep", "Mandla", "Mandsaur", "Mauganj", "Mhow Cantonment", "Mhowgaon", "Morena", "Multai", "Mundi", "Murwara (Katni)", "Nagda", "Nainpur", "Narsinghgarh", "Narsinghgarh", "Neemuch", "Nepanagar", "Niwari", "Nowgong", "Nowrozabad (Khodargama)", "Pachore", "Pali", "Panagar", "Pandhurna", "Panna", "Pasan", "Pipariya", "Pithampur", "Porsa", "Prithvipur", "Raghogarh-Vijaypur", "Rahatgarh", "Raisen", "Rajgarh", "Ratlam", "Rau", "Rehli", "Rewa", "Sabalgarh", "Sagar", "Sanawad", "Sarangpur", "Sarni", "Satna", "Sausar", "Sehore", "Sendhwa", "Seoni", "Seoni-Malwa", "Shahdol", "Shajapur", "Shamgarh", "Sheopur", "Shivpuri", "Shujalpur", "Sidhi", "Sihora", "Singrauli", "Sironj", "Sohagpur", "Tarana", "Tikamgarh", "Ujjain", "Umaria", "Vidisha", "Vijaypur", "Wara Seoni"],
+            "Maharashtra": ["Ahmednagar", "Akola", "Akot", "Amalner", "Ambejogai", "Amravati", "Anjangaon", "Arvi", "Aurangabad", "Bhiwandi", "Dhule", "Kalyan-Dombivali", "Ichalkaranji", "Kalyan-Dombivali", "Karjat", "Latur", "Loha", "Lonar", "Lonavla", "Mahad", "Malegaon", "Malkapur", "Mangalvedhe", "Mangrulpir", "Manjlegaon", "Manmad", "Manwath", "Mehkar", "Mhaswad", "Mira-Bhayandar", "Morshi", "Mukhed", "Mul", "Greater Mumbai*", "Murtijapur", "Nagpur", "Nanded-Waghala", "Nandgaon", "Nandura", "Nandurbar", "Narkhed", "Nashik", "Navi Mumbai", "Nawapur", "Nilanga", "Osmanabad", "Ozar", "Pachora", "Paithan", "Palghar", "Pandharkaoda", "Pandharpur", "Panvel", "Parbhani", "Parli", "Partur", "Pathardi", "Pathri", "Patur", "Pauni", "Pen", "Phaltan", "Pulgaon", "Pune", "Purna", "Pusad", "Rahuri", "Rajura", "Ramtek", "Ratnagiri", "Raver", "Risod", "Sailu", "Sangamner", "Sangli", "Sangole", "Sasvad", "Satana", "Satara", "Savner", "Sawantwadi", "Shahade", "Shegaon", "Shendurjana", "Shirdi", "Shirpur-Warwade", "Shirur", "Shrigonda", "Shrirampur", "Sillod", "Sinnar", "Solapur", "Soyagaon", "Talegaon Dabhade", "Talode", "Tasgaon", "Thane", "Tirora", "Tuljapur", "Tumsar", "Uchgaon", "Udgir", "Umarga", "Umarkhed", "Umred", "Uran", "Uran Islampur", "Vadgaon Kasba", "Vaijapur", "Vasai-Virar", "Vita", "Wadgaon Road", "Wai", "Wani", "Wardha", "Warora", "Warud", "Washim", "Yavatmal", "Yawal", "Yevla"],
+            "Manipur": ["Imphal*", "Lilong", "Mayang Imphal", "Thoubal"],
+            "Meghalaya": ["Nongstoin", "Shillong*", "Tura"],
+            "Mizoram": ["Aizawl", "Lunglei", "Saiha"],
+            "Nagaland": ["Dimapur", "Kohima*", "Mokokchung", "Tuensang", "Wokha", "Zunheboto"],
+            "Odisha": ["Balangir", "Baleshwar Town", "Barbil", "Bargarh", "Baripada Town", "Bhadrak", "Bhawanipatna", "Bhubaneswar*", "Brahmapur", "Byasanagar", "Cuttack", "Dhenkanal", "Jatani", "Jharsuguda", "Kendrapara", "Kendujhar", "Malkangiri", "Nabarangapur", "Paradip", "Parlakhemundi", "Pattamundai", "Phulabani", "Puri", "Rairangpur", "Rajagangapur", "Raurkela", "Rayagada", "Sambalpur", "Soro", "Sunabeda", "Sundargarh", "Talcher", "Tarbha", "Titlagarh"],
+            "Puducherry": ["Karaikal", "Mahe", "Pondicherry*", "Yanam"],
+            "Punjab": ["Amritsar", "Barnala", "Batala", "Bathinda", "Dhuri", "Faridkot", "Fazilka", "Firozpur", "Firozpur Cantt.", "Gobindgarh", "Gurdaspur", "Hoshiarpur", "Jagraon", "Jalandhar Cantt.", "Jalandhar", "Kapurthala", "Khanna", "Kharar", "Kot Kapura", "Longowal", "Ludhiana", "Malerkotla", "Malout", "Mansa", "Moga", "Mohali", "Morinda, India", "Mukerian", "Muktsar", "Nabha", "Nakodar", "Nangal", "Nawanshahr", "Pathankot", "Patiala", "Pattran", "Patti", "Phagwara", "Phillaur", "Qadian", "Raikot", "Rajpura", "Rampura Phul", "Rupnagar", "Samana", "Sangrur", "Sirhind Fatehgarh Sahib", "Sujanpur", "Sunam", "Talwara", "Tarn Taran", "Urmar Tanda", "Zira", "Zirakpur"],
+            "Rajasthan": ["Ajmer", "Alwar", "Bikaner", "Bharatpur", "Bhilwara", "Jaipur*", "Jodhpur", "Lachhmangarh", "Ladnu", "Lakheri", "Lalsot", "Losal", "Makrana", "Malpura", "Mandalgarh", "Mandawa", "Mangrol", "Merta City", "Mount Abu", "Nadbai", "Nagar", "Nagaur", "Nasirabad", "Nathdwara", "Neem-Ka-Thana", "Nimbahera", "Nohar", "Nokha", "Pali", "Phalodi", "Phulera", "Pilani", "Pilibanga", "Pindwara", "Pipar City", "Prantij", "Pratapgarh", "Raisinghnagar", "Rajakhera", "Rajaldesar", "Rajgarh (Alwar)", "Rajgarh (Churu)", "Rajsamand", "Ramganj Mandi", "Ramngarh", "Ratangarh", "Rawatbhata", "Rawatsar", "Reengus", "Sadri", "Sadulshahar", "Sadulpur", "Sagwara", "Sambhar", "Sanchore", "Sangaria", "Sardarshahar", "Sawai Madhopur", "Shahpura", "Shahpura", "Sheoganj", "Sikar", "Sirohi", "Sojat", "Sri Madhopur", "Sujangarh", "Sumerpur", "Suratgarh", "Taranagar", "Todabhim", "Todaraisingh", "Tonk", "Udaipur", "Udaipurwati", "Vijainagar, Ajmer"],
+            "Tamil Nadu": ["Arakkonam", "Aruppukkottai", "Chennai*", "Coimbatore", "Erode", "Gobichettipalayam", "Kancheepuram", "Karur", "Lalgudi", "Madurai", "Manachanallur", "Nagapattinam", "Nagercoil", "Namagiripettai", "Namakkal", "Nandivaram-Guduvancheri", "Nanjikottai", "Natham", "Nellikuppam", "Neyveli (TS)", "O' Valley", "Oddanchatram", "P.N.Patti", "Pacode", "Padmanabhapuram", "Palani", "Palladam", "Pallapatti", "Pallikonda", "Panagudi", "Panruti", "Paramakudi", "Parangipettai", "Pattukkottai", "Perambalur", "Peravurani", "Periyakulam", "Periyasemur", "Pernampattu", "Pollachi", "Polur", "Ponneri", "Pudukkottai", "Pudupattinam", "Puliyankudi", "Punjaipugalur", "Ranipet", "Rajapalayam", "Ramanathapuram", "Rameshwaram", "Rasipuram", "Salem", "Sankarankoil", "Sankari", "Sathyamangalam", "Sattur", "Shenkottai", "Sholavandan", "Sholingur", "Sirkali", "Sivaganga", "Sivagiri", "Sivakasi", "Srivilliputhur", "Surandai", "Suriyampalayam", "Tenkasi", "Thammampatti", "Thanjavur", "Tharamangalam", "Tharangambadi", "Theni Allinagaram", "Thirumangalam", "Thirupuvanam", "Thiruthuraipoondi", "Thiruvallur", "Thiruvarur", "Thuraiyur", "Tindivanam", "Tiruchendur", "Tiruchengode", "Tiruchirappalli", "Tirukalukundram", "Tirukkoyilur", "Tirunelveli", "Tirupathur", "Tirupathur", "Tiruppur", "Tiruttani", "Tiruvannamalai", "Tiruvethipuram", "Tittakudi", "Udhagamandalam", "Udumalaipettai", "Unnamalaikadai", "Usilampatti", "Uthamapalayam", "Uthiramerur", "Vadakkuvalliyur", "Vadalur", "Vadipatti", "Valparai", "Vandavasi", "Vaniyambadi", "Vedaranyam", "Vellakoil", "Vellore", "Vikramasingapuram", "Viluppuram", "Virudhachalam", "Virudhunagar", "Viswanatham"],
+            "Telangana": ["Adilabad", "Bellampalle", "Bhadrachalam", "Bhainsa", "Bhongir", "Bodhan", "Farooqnagar", "Gadwal", "Hyderabad*", "Jagtial", "Jangaon", "Kagaznagar", "Kamareddy", "Karimnagar", "Khammam", "Koratla", "Kothagudem", "Kyathampalle", "Mahbubnagar", "Mancherial", "Mandamarri", "Manuguru", "Medak", "Miryalaguda", "Nagarkurnool", "Narayanpet", "Nirmal", "Nizamabad", "Palwancha", "Ramagundam", "Sadasivpet", "Sangareddy", "Siddipet", "Sircilla", "Suryapet", "Tandur", "Vikarabad", "Wanaparthy", "Warangal", "Yellandu"],
+            "Tripura": ["Agartala*", "Belonia", "Dharmanagar", "Kailasahar", "Khowai", "Pratapgarh", "Udaipur"],
+            "Uttar Pradesh": ["Achhnera", "Agra", "Aligarh", "Allahabad", "Amroha", "Azamgarh", "Bahraich", "Chandausi", "Etawah", "Firozabad", "Fatehpur Sikri", "Hapur", "Hardoi ", "Jhansi", "Kalpi", "Kanpur", "Khair", "Laharpur", "Lakhimpur", "Lal Gopalganj Nindaura", "Lalitpur", "Lalganj", "Lar", "Loni", "Lucknow", "Mathura", "Meerut", "Modinagar", "Moradabad", "Nagina", "Najibabad", "Nakur", "Nanpara", "Naraura", "Naugawan Sadat", "Nautanwa", "Nawabganj", "Nehtaur", "Niwai", "Noida", "Noorpur", "Obra", "Orai", "Padrauna", "Palia Kalan", "Parasi", "Phulpur", "Pihani", "Pilibhit", "Pilkhuwa", "Powayan", "Pukhrayan", "Puranpur", "Purquazi", "Purwa", "Rae Bareli", "Rampur", "Rampur Maniharan", "Rampur Maniharan", "Rasra", "Rath", "Renukoot", "Reoti", "Robertsganj", "Rudauli", "Rudrapur", "Sadabad", "Safipur", "Saharanpur", "Sahaspur", "Sahaswan", "Sahawar", "Sahjanwa", "Saidpur", "Sambhal", "Samdhan", "Samthar", "Sandi", "Sandila", "Sardhana", "Seohara", "Shahabad, Hardoi", "Shahabad, Rampur", "Shahganj", "Shahjahanpur", "Shamli", "Shamsabad, Agra", "Shamsabad, Farrukhabad", "Sherkot", "Shikarpur, Bulandshahr", "Shikohabad", "Shishgarh", "Siana", "Sikanderpur", "Sikandra Rao", "Sikandrabad", "Sirsaganj", "Sirsi", "Sitapur", "Soron", "Suar", "Sultanpur", "Sumerpur", "Tanda", "Thakurdwara", "Thana Bhawan", "Tilhar", "Tirwaganj", "Tulsipur", "Tundla", "Ujhani", "Unnao", "Utraula", "Varanasi", "Vrindavan", "Warhapur", "Zaidpur", "Zamania"],
+            "Uttarakhand": ["Bageshwar", "Dehradun", "Haldwani-cum-Kathgodam", "Hardwar", "Kashipur", "Manglaur", "Mussoorie", "Nagla", "Nainital", "Pauri", "Pithoragarh", "Ramnagar", "Rishikesh", "Roorkee", "Rudrapur", "Sitarganj", "Srinagar", "Tehri"],
+            "West Bengal": ["Adra", "Alipurduar", "Arambagh", "Asansol", "Baharampur", "Balurghat", "Bankura", "Darjiling", "English Bazar", "Gangarampur", "Habra", "Hugli-Chinsurah", "Jalpaiguri", "Jhargram", "Kalimpong", "Kharagpur", "Kolkata", "Mainaguri", "Malda", "Mathabhanga", "Medinipur", "Memari", "Monoharpur", "Murshidabad", "Nabadwip", "Naihati", "Panchla", "Pandua", "Paschim Punropara", "Purulia", "Raghunathpur", "Raghunathganj", "Raiganj", "Rampurhat", "Ranaghat", "Sainthia", "Santipur", "Siliguri", "Sonamukhi", "Srirampore", "Suri", "Taki", "Tamluk", "Tarakeswar"]
+        };
+        let states = "<option> Select State </option>";
+
+        for (let y in statearr) {
+            states += `<option value="${y}"> ${y} </option>`;
+        }
+        document.getElementById("state").innerHTML = states;
+
+        function fill(y) {
+            let mycities = "<option> Select City </option>";
+
+            for (let cities of statearr[y]) {       //using for-in loop fills with index values, for-of loop fills with values
+                mycities += `<option value = "${cities}"> ${cities} </option>`
+            }
+            document.getElementById("sc1").innerHTML = mycities;
+        }
+
+        //function add
+        let dataArr = [];
+        function add() {
+            var Name = document.getElementById("name").value;
+            var Number = document.getElementById("number").value;
+            var Email = document.getElementById("email").value;
+            var Password = document.getElementById("pass").value;
+            var ConfPass = document.getElementById("cpass").value;
+            var State = document.getElementById("state").value;
+            var City = document.getElementById("sc1").value;
+
+            if (Name.trim() == "" || Number.trim() == "" || Email.trim() == "" ||
+                Password.trim() == "" || ConfPass.trim() == "" || State.trim() == "" || City.trim() == "") {
+                alert("Fill all input fields");
+                return false;
+            } else {
+                let obj = {
+                    "Fname": Name,
+                    "Phone": Number,
+                    "E_mail": Email,
+                    "state": State,
+                    "city": City
+                }
+                dataArr.push(obj);
+                showdata();
+                document.getElementById("DataTable").style.display= "block";
+                clearData();
+            }
+
+        }
+
+        // function showdata
+        function showdata() {
+            let str = "", ind = 0;
+            for (let i of dataArr) {
+                str += `<tr><td>${i.Fname}</td><td>${i.Phone}</td>
+                    <td>${i.E_mail}</td><td>${i.state}</td>
+                    <td>${i.city}</td>
+                    <td><button onclick="editdt(${ind})">Edit</button>
+                    <td><button onclick="deletedt(${ind})">Delete</button>
+                    </tr>`;
+                ind++;
+            }
+            document.getElementById("loadData").innerHTML = str;
+        }
+
+        //function cleardata
+        function clearData() {
+              document.getElementById("name").value = "";
+              document.getElementById("number").value = "";
+              document.getElementById("email").value = "";
+              document.getElementById("pass").value = "";
+              document.getElementById("cpass").value = "";
+              document.getElementById("state").value = "";
+              document.getElementById("sc1").value = "";
+
+        }
+
+        // function edit
+        let globalid = -1;
+        function editdt(id) {
+            globalid = id;
+            document.getElementById("btnupdate").style.display = "block";
+            document.getElementById("btnsubmit").style.display = "none";
+
+            document.getElementById("name").value= dataArr[id].Fname;
+            document.getElementById("number").value= dataArr[id].Phone;
+            document.getElementById("email").value= dataArr[id].E_mail;
+            document.getElementById("pass").value= dataArr[id].Password;
+            document.getElementById("cpass").value= dataArr[id].ConfPass;
+            document.getElementById("state").value= dataArr[id].state;
+            document.getElementById("sc1").value= dataArr[id].city;
+
+        }
+        //function update user
+        function updateuser() {
+            var Name = document.getElementById("name").value;
+            var Number = document.getElementById("number").value;
+            var Email = document.getElementById("email").value;
+            var password = document.getElementById("pass").value;
+            var ConfPass = document.getElementById("cpass").value;
+            var state = document.getElementById("state").value;
+            var city = document.getElementById("sc1").value;
+        
+            var obj= {
+                  "Fname": Name,
+                  "Phone": Number,
+                  "E_mail" : Email, 
+                  "state": state,
+                  "city" : city,
+
+            }
+              dataArr.splice(globalid, 1, obj);
+              showdata();
+
+        }
+
+        //function delete
+        function deletedt(ind) {
+            dataArr.splice(ind , 1);
+            showdata();
+            clearData();
+        }
+
+    
+        //search  table
+        $(document).ready(function(){
+            $("#myinput").on("keyup", function(){
+                 let value = $(this).val().toLowerCase();
+                 $("#loadData tr").filter(function(){
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    $(".text")
+                 });
+            });
+        });
+
+
+
+    </script>
+</body>
+</html>

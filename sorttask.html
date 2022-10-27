@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+</head>
+  <style>
+     body {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      background-color: rosybrown;
+     }
+    .container {
+        width: 400px;
+        height: 400px;
+        margin: auto;
+    }
+    .btn1 {
+         background-color: rgb(168, 212, 210);
+         color: black;
+         padding: 5px 15px;
+         border-radius: 8px;
+         font-size: 14px;
+         font-weight: 400;
+         border-color: transparent;
+    }
+    .btn2 {
+         background-color: rgb(212, 164, 212);
+         color: black;
+         padding: 5px 15px;
+         border-radius: 8px;
+         font-size: 14px;
+         font-weight: 400;
+         border-color: transparent;
+    }
+    .btn3 {
+         background-color: rgb(184, 201, 238);
+         color: black;
+         padding: 5px 15px;
+         border-radius: 8px;
+         font-size: 14px;
+         font-weight: 400;
+         border-color: transparent;
+    }
+    /* Dates Task */
+    #date {
+        width: 120px;
+        height: 30px;
+    }
+    .btn4 {
+         background-color: rgb(139, 12, 101);
+         color: white;
+         padding: 8px 25px;
+         font-size: 14px;
+         font-weight: 400;
+         border-color: transparent;
+    }
+  </style>
+<body>
+  <!-- Sort Task -->
+   <div class="container">
+     <h2>Task (Sort)</h2>
+     <div class="row">
+    <button class="btn1" onclick="asc()">Sort Ascending</button>
+    <button class= "btn2" onclick="dec()">Sort Descending</button>
+    <button class="btn3" onclick="rdm()">Sort Random</button>
+    <p id="result"></p>
+    </div>
+    <br> <hr><br>
+
+  <!-- Dates Task -->
+   <h2>Task (Date)</h2>
+   <div class="row">
+  <label for="age">Enter Date Of Birth</label>
+  <input type="date" id="date"><br>
+  <button class="btn4" onclick="cal()">Calculate</button>
+  <p id="age">Your age is :</p>
+   </div>
+  </div>
+
+  <script>
+    const fruits= ["Orange", "Mango", "Kiwi", "Banana", "Apple", "PineAplle", "Watermillon", "Guava"];
+     let Str= fruits.toString();
+     str ="";
+     str +="<ul>";
+        for (x of fruits) {
+            str += "<li>" + x + "</li>"
+        }
+     str+= "</ul>";
+     document.getElementById("result").innerHTML = str;
+
+     // ascending 
+     function asc() {
+          str += fruits.sort();
+          str ="";
+          str += "<ul>";
+            for (x of fruits){
+                str += "<li>"+ x + "</li>";
+            }
+            str += "</ul>";
+            document.getElementById("result").innerHTML = str;
+     }
+     // descending
+     function dec() {
+          str += fruits.reverse();
+          str ="";
+          str += "<ul>";
+            for (x of fruits){
+                str += "<li>"+ x + "</li>";
+            }
+            str += "</ul>";
+            document.getElementById("result").innerHTML = str;
+     }
+
+     // random
+     function rdm() {
+          str += fruits.sort(function(a, b){return 0.5 - Math.random()});
+          str ="";
+          str += "<ul>";
+            for (x of fruits){
+                str += "<li>"+ x + "</li>";
+            }
+            str += "</ul>";
+            document.getElementById("result").innerHTML = str;
+     }
+
+
+    //  Date task
+   function cal() {
+       let d = document.getElementById("date").value;
+       a = new Date();
+       b= new Date(d);
+       c= a.getFullYear() -b.getFullYear();
+
+       document.getElementById("age").innerHTML = c;
+   }
+    
+
+
+  </script>
+</body>
+</html>

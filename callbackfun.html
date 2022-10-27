@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Async</title>
+</head>
+<body>
+    <h1>Javascript Async</h1>
+    <!-- Simple Call Function  -->
+    <!-- <script>
+        function fun1(x) {
+            console.log("fun1 " + x);
+        }
+        function fun2(a) {
+             console.log("fun2 " + a);
+             fun1("Hello");
+        }
+        fun2("World");
+    </script> -->
+
+    <!-- Function Callback -->
+    <!-- <script>
+        function fun1(x) {
+            console.log("fun1 " + x);
+        }
+        function fun2(a,b) {
+            console.log("fun2 " + a);
+            b("Hello");
+        }
+        fun2("World",fun1);
+    </script> -->
+   
+     <!-- Anonymous / callback -->
+      <!-- <script>
+        function fun2(a,b) {
+            console.log("fun2 " +a);
+            b("Hello");
+        }
+        fun2("World", function(x) {
+            console.log("fun1 " +x);
+        });
+      </script> -->
+
+      <!--Function Callback (arrow )-->
+       <script>
+        function fun2(a,b) {
+             console.log("fun2 " +a);
+             b("Hello");
+        }
+        fun2("World",((x)=>{
+            console.log("fun1 " +x);
+        })); 
+       </script>
+
+</body>
+</html>

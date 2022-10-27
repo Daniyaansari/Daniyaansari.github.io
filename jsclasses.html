@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Classes</title>
+</head>
+<body>
+    <h1>JS Classes</h1>
+    <script>
+        class Demo {
+            x;
+            y;
+            show(){
+                this.x= 10;
+                console.log(this.x);
+            }
+        }
+        let d1 = new Demo();
+        d1.show();
+    </script>
+
+    <script>
+        class Demo2 {
+            x;
+            y;
+            getdt(a, b){
+                this.x = a;
+                this.y = b;
+            }
+            show() {
+                console.log("x=" + this.x);
+                console.log("y=" + this.y);
+            }
+        }
+        let d2 = new Demo2();
+        let d3 = new Demo2();
+
+        d2.getdt(20, 14);
+        d3.getdt(3,8);
+        d2.show();
+        d3.show();
+
+    </script>
+    
+</body>
+</html>

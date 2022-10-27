@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doubts Topics</title>
+</head>
+<body>
+    <h2>Switch Case</h2>
+    <h2>Debugger</h2>
+    <h2>Stritct</h2>
+    <h2>Arrow function</h2>
+    <h2>Get Set</h2>
+    <h2>Map</h2>
+    <h2>Class Constructors</h2>
+    <!-- <script>
+        let x= 5;
+        switch(x){
+            case 1:
+                console.log("One");
+                break;
+
+                case 2:
+                console.log("Two");
+                break;
+
+                case 3:
+                 console.log("Three");
+                 break;
+
+                 case 4:
+                 console.log("Four");
+                 break;
+
+                 default:
+                 console.log("Invalid number");
+        }
+            
+    </script> -->
+
+    <!-- <script>
+        let str= "";
+         debugger;
+         for (let i =1; i<=5; i++ ) {
+             str +=`<li>${i}</li>`;
+         }
+         console(str);
+    </script> -->
+
+    <!-- <script>
+        "use Stritct"
+        x= 10;
+        console.log("x = "+ x);
+    </script> -->
+
+    <!-- <script>
+        "use Strict"
+        let x =this;
+        console.log(x);
+    </script> -->
+
+    <!-- <script>
+        "use strict"
+        function fun(){
+            console.log(this);
+        }
+        fun();
+    </script> -->
+
+    <!-- <script>
+        function show() {
+            return "Hello";
+        }
+        console.log(show());
+    </script> -->
+
+    <!-- Arrow function -->
+    <!-- <script>
+        show =()=> "Hello";
+        console.log(show());
+    </script> -->
+
+    <!-- <script>
+        show = (x,y)=> {
+            console.log("Hello World");
+            return "Hello";
+        }
+        show();
+    </script> -->
+
+    <!-- <script>
+        var person = {
+             name: "Daniya",
+             age: 20,
+             getage: function(){
+                return this.age;
+             },
+             get uage(){
+                return this.age;
+             },
+             setage:function(x){
+                this.age= x;
+             },
+             set sage(x) {
+                  this.age = x;
+             }
+        }
+        console.log(person.age);
+        console.log(person.getage());
+        console.log(person.uage);
+        person.age= 42;
+        console.log(person.uage);
+        person.setage(32);
+        console.log(person.uage);
+        person.sage= 91;
+        console.log(person.uage);
+    </script> -->
+
+    <!-- <script>
+        let fruits = new Set(["Apple", "Mango", "Banana", "Apple"]);
+           console.log(fruits.size);
+           fruits.forEach((val, index, array)=> {
+                console.table(val, index, array);
+           })
+           for (let x of fruits.values()){
+             console.table(x);
+           }
+    </script> -->
+
+    <!-- <script>
+        let fruits = new Map([
+            ["Apple", 200],
+            ["Mango", 800],
+            ["Kiwi", 900],
+        ]);
+        fruits.set("Orange", 20);
+        console.log(fruits.get("Mango"));
+        fruits.forEach(val => {
+            console.log(val) 
+          });
+
+          for (let x of fruits.entries()){
+            console.log(x);
+          }
+    </script> -->
+
+    <!-- <script>
+        person = (fname, lname)=> {
+            console.log(fname + " " + lname);
+        };
+        person("Daniya", "Ansari");
+        function Person(fname, lname) {
+            this.fname = fname;
+            this.lname= lname;
+        }
+        let user = new Person ("Umra", "Ansari");
+        console.log(user.fname + " " + user.lname);
+        
+        let user1 = new Person("Azra", "Ansari");
+        user.age = 21;
+
+        console.log(user.age);
+        Person.prototype.age= 33;
+
+        console.log(user.age + " " + user1.age);
+
+    </script> -->
+
+    <script>
+
+        class Student {
+              subject;
+              constructor(x){
+                this.subject= x;
+              }
+              show(){
+                console.log(this.subject);
+              }
+        }
+        let s1= new Student("English");
+        let s2= new Student("Hindi");
+        s1.show();
+        s2.show();
+    </script>
+</body>
+</html>

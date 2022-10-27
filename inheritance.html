@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritance</title>
+</head>
+<body>
+    <h1>Inheritance</h1>
+    
+<!-- Single Inheritence -->
+  <!-- <script>
+    class Base {
+         show() {
+            console.log("Base show function");
+         }
+    }
+    class Derieved extends Base{
+         dispc() {
+            console.log("Disp function derieved");
+         }
+    }
+    let b = new Base();
+    let d = new Derieved();
+    b.show();
+    d.show();
+    d.dispc();
+  </script> -->
+
+  <!-- Multi level Inheritance  -->
+    <!-- <script>
+      class Base {
+        show(){
+            console.log("Base  show function")
+        }
+      }
+       class Derieved extends Base{
+           dispc() {
+            console.log("Disp function derieved");
+           }
+       }
+        class Derieved2 extends Derieved {
+            dispc2() {
+                console.log("Disp function multiple")
+            }
+        }
+       let e = new Base();
+       let f = new Derieved();
+       let g = new Derieved2();
+
+       e.show();
+       f.show();
+       f.dispc();
+       g.show();
+       g.dispc();
+       g.dispc2();
+    </script> -->
+
+   <!-- Multilevel -->
+     <!-- <script>
+       class Base {
+          function1() {
+            console.log("Base function (Parent)");
+          }
+       } 
+        class Derieved extends Base {
+            function2(){
+                console.log("Sub Function(Child function)")
+            }
+         }
+        class Derieved2 extends Base {
+              function3(){
+                 console.log("Sub Function(child function)")
+              }
+        }
+        let a = new Base();
+        let b = new Derieved();
+        let c = new Derieved2();
+
+        a.function1();
+
+        b.function1();
+        b.function2();
+
+        c.function1();
+        c.function3();
+     </script> -->
+
+
+<script>
+    // Herictical
+    class clsA {
+       showA() {
+         console.log("Base function (Parent)");
+       }
+    } 
+     class clsB extends clsA{
+         showB(){
+             console.log("Sub Function(Child function)")
+         }
+      }
+     class clsC extends  clsA{
+           showC(){
+              console.log("Sub Function(child function)")
+           }
+     }
+     class clsD extends clsB{
+           showD(){
+              console.log("Sub Function(child function)")
+           }
+     }
+     class clsE extends clsB {
+           showE(){
+              console.log("Sub Function(child function)")
+           }
+     }
+
+     class clsF extends clsC {
+           showF(){
+              console.log("Sub Function(child function)")
+           }
+     }
+
+     class clsG extends clsC {
+           showG(){
+              console.log("Sub Function(child function)")
+           }
+     }
+     let a = new clsA();
+     let b = new clsB();
+     let c = new clsC();
+     let e= new clsD();
+     let f= new clsC();
+
+
+     a.show();
+
+     b.showA();
+     b.showB();
+
+     c.showB();
+     c.showD();
+  </script>
+
+  
+
+</body>
+</html>

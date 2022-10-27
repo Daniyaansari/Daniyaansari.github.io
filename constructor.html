@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor</title>
+</head>
+<body>
+    <h1>Constructor</h1>
+<!-- Simple -->
+    <script>
+        class Employee{
+            constructor(){
+                console.log("Employee Constructed");
+            }
+        }
+        let emp = new Employee();
+    </script>
+
+    <!-- Perametrized -->
+    <script>
+         class Employee2 {
+             constructor(x,y) {
+                console.log("Employee Constructed " + x + " " + y);
+             }
+         }
+         let emp2 = new Employee2(3,4);
+    </script>
+
+    <!-- Inheritance Constructor -->
+
+     <script>
+        class Demo {
+            constructor() {
+                console.log("Demo Constructor");
+            }
+        }
+        class Child extends Demo {
+               constructor(){
+                super();
+                console.log("Child Constructor");
+               }
+        }
+        let ch= new Child();
+     </script>
+
+    <!-- Constructor with parameterized -->
+     <script>
+        class Demo1 {
+             constructor(a) {
+               console.log("Demo Constructor " +a);
+             }
+        }
+        class child extends Demo1 {
+            constructor(x,y) {
+                super(y);
+                console.log("Child Constructor " + x + " " + y); 
+            }
+        }
+        let ch1 = new child(8,7);
+     </script>
+</body>
+</html>

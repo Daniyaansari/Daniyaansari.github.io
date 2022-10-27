@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Async</title>
+</head>
+<body>
+    <h1>JS Async </h1>
+    <!-- <script> 
+        // // Callbacks
+        // function fun1(x){
+        //     console.log(x);
+        // }
+        // function fun2(a,b){
+        //     console.log("Function 2");
+        //     a(b);
+        // }
+        // fun2(fun1, "Hello");
+     </script>  -->
+
+    <!-- <script>
+        function fun2(a, b) {
+            console.log("Function2");
+            a(b);
+        }
+        fun2(function(x){
+            console.log(x);
+        },"Hello");
+
+    </script> -->
+    
+      <!-- <script>
+        // Callback in arrow function
+        fun2= (a, b)=> {
+            console.log("Function 2");
+            a(b);
+        }
+        fun2(x=> {
+            console.log(x); 
+        }, "Anonymus Function")
+        
+      </script> -->
+
+      <script>
+        console.log("One");
+        console.log("Two");
+        console.log("Three");
+        console.log("four");
+        setTimeout(()=>console.log("Timeout"),0)
+        console.log("Five");
+      </script>
+    
+</body>
+</html>

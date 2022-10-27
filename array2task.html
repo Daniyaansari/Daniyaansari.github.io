@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Task 2</title>
+    <style>
+      body {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          background-color: cadetblue;
+      }
+      .container {
+           height: 300px;
+           width: 300px;
+           margin: auto;
+           margin-top: 60px;
+      }
+      label {
+        font-size: 22px;
+      }
+      input {
+        width: 100%;
+        height: 35px;
+        border-radius: 5px;
+        border-color: transparent;
+        margin: 10px 0;
+      }
+      button {
+         background-color: white;
+         color: rgb(47, 108, 110);
+         padding: 12px 30px;
+         border-radius: 8px;
+         font-size: 15px;
+         font-weight: 600;
+         text-transform: uppercase;
+         border-color: transparent;
+      }
+    </style>
+</head>
+<body>
+<!-- task 1 -->
+    <div class="container">
+        <h2>Task (Array Push)</h2>
+        <div class="row">
+     <label for="name">Enter Name :</label><br>
+     <input type="text" id="name"><br>
+     <button onclick="add()">Add</button> 
+     <p id="list1"></p>  
+    </div>
+    <br><hr><br>
+    
+ <!-- task2 -->
+      <h2>Task (Splice)</h2>
+      <div class="row">
+        <label>Enter New Name:</label>
+         <input type="text" id="ip2">
+         <input type="text" id="ip3">
+         <button onclick="add2()">Add</button>
+         <p id="list2"></p>
+      </div>
+    </div>
+
+    <!-- task 1 -->
+    <script>
+      var name1 = [];
+       function add() {
+         var x = document.getElementById("name").value;
+         name1.push(x);
+         var i= "";
+         i  += "<ul>";
+          for (k of name1) {
+             i+= "<li>" + k + "</li>"
+          }
+          i += "</ul>";
+          document.getElementById("list1").innerHTML= i;
+          document.getElementById("name").value= "";
+        }
+    </script>
+    
+    <!-- task 2 -->
+    <script>
+      const name2= ["Daniya", "Anjum", "Ansari"];
+      var w = name2.toString();
+      w = "";
+      w += "<ul>";
+        for (z of name2) {
+            w += "<li>" + z + "</li>"
+        }
+        w += "</ul>";
+        document.getElementById("list2").innerHTML = w;
+        function add2() {
+            var a= document.getElementById("ip2").value;
+            var b= parseInt(document.getElementById("ip3").value);
+            w = name2.splice(b, 1, a);
+            w = "";
+            w += "<ul>";
+              for (z of name2) {
+                 w += "<li>" + z + "</li>";
+              }
+              w += "</ul>";
+              document.getElementById("list2").innerHTML = w;
+        }
+
+     </script>
+     </body>
+     </html>

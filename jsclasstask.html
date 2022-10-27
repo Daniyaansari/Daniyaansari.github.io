@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Class Task</title>
+</head>
+<h1>JS Classes Task</h1>
+<body>
+    <script>
+        class Demo {
+            x;
+            y;
+            getdt(a , b) {
+                this.x = a;
+                this.y = b;
+            }
+            // add
+
+            add() {
+            let c= this.x + this.y;
+            console.log(c);
+            }
+            // sub
+
+            sub() {
+            let c= this.x - this.y;
+            console.log(c);
+            }
+
+            // mul
+            mul() {
+            let c= this.x * this.y;
+            console.log(c);
+            }
+
+            // div
+            div() {
+            let c= this.x / this.y;
+            console.log(c);
+            }
+        }
+        let d1 = new Demo();
+        let d2 = new Demo();
+ 
+        // add
+        d1.getdt(10, 5);
+        d2.getdt(10, 12);
+        d1.add();
+        d2.add();
+
+        // sub
+        d1.sub();
+        d2.sub();
+
+        // multi
+        d1.mul();
+        d2.mul();
+
+        // div
+        d1.div();
+        d2.div();
+    </script>
+    
+</body>
+</html>

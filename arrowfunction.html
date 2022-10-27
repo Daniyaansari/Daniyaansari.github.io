@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Function</title>
+</head>
+<body>
+    <script>
+        function show1() {
+            return "Helloo!";
+        }
+        x = show1(); 
+        console.log(x);  
+        
+        
+    var show2= function() {
+         return "Hello Js";
+    }
+    x = show2();
+    console.log(x);
+
+
+    show3 = () => "Helloo Js";
+      x = show3();
+      console.log(x);
+
+      show4 = (x, y) => x + y;
+        a = show4(3,4);
+        console.log(a);
+
+        show5 =() => {
+             console.log("This is show");
+             return "Hello Arrow";
+        }
+        a = show5();
+        console.log(a);
+    </script>
+</body>
+</html>

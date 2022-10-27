@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strings</title>
+    <style>
+      body {
+        background-color: brown;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+         width: 300px;
+         height: 300px;
+         margin: auto;
+         margin-top: 60px;
+      }
+      label {
+         font-size: 20px;
+         color: white;
+      }
+      input {
+        width: 100%;
+        height: 35px;
+        margin: 10px 0;
+      }
+      button {
+         background-color: white;
+         color: brown;
+         padding: 12px 30px;
+         border-radius: 8px;
+         font-size: 15px;
+         text-transform: uppercase;
+         border-color: transparent;
+      }
+      p {
+        color: white;
+        font-size: 18px;
+      }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+      <div class="row">
+        <label for="name">Enter Your Name</label><br>
+        <input type="text" id="name">
+        <button onclick="find()">Find</button>
+        <p id="findn">Your First name is</p>
+      </div>
+
+     <!-- second -->
+      <div class="row">
+        <label for="names">Enter names with comma seprated</label>
+        <input type="text" id="names">
+        <button onclick="list()">Click</button>
+        <p id="lists">Your names are:</p>
+      </div>
+    </div>
+
+    <script>
+        // first task
+
+        function find() {
+             let x = document.getElementById("name").value;
+             document.getElementById("findn").innerHTML= x.slice(0 ,6);
+        }
+
+        // second task
+
+        function list() {
+              let z = document.getElementById("names").value;
+              var arr = z.split(",");
+
+                z= "";
+                z+= "<ul>";
+                for  (var i=0; (i< arr.length);i++){
+                    z +="<li>" + arr[i] + "</li>";
+                }
+                z+= "</ul>";
+                document.getElementById("lists").innerHTML= z;
+        }
+
+
+    </script>
+    
+</body>
+</html>

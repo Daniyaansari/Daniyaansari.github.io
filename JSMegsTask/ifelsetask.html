@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>If Condition</title>
+</head>
+<body>
+    <h1>If Else Task</h1>
+  <script>
+//    find maximum between two number
+    var x=12, y= 15 ;
+      if (x > y){
+        console.log("x is greater");
+      }
+      else {
+        console.log("y is greater");
+      }
+//  find maximum between three numbers
+     var a=4, b=9, c=12
+     if (a > b){
+       if (a > c) {
+            console.log("a is greater");
+       }
+       else {
+            console.log("c is greater");
+       }
+     }
+      else {
+        if (a > c){
+           console.log("a is greater");
+        }
+        else {
+            console.log("c is greater");
+        }
+    }
+    // a number divisible by 5 and 11
+     
+       var a = 110;
+         if (a % 5 == 0 && a % 11== 0) {
+              console.log("a is divisible by 5 and 11");
+         }
+         else {
+              console.log("a in not divisible by 5 and 11");
+         }
+     
+    // a number even or odd
+        var a= 17;
+          if (a % 2 == 0) {
+            console.log("It is even");
+        }
+        else {
+            console.log("It is odd");
+        }
+    
+    // charachter is alphabet or not
+       var a= "d";
+        if(a >= 'A' && a <= 'z') {
+            console.log("Alphabet");
+        }
+        else if (a >= 'a' && a<= 'z') {
+            console.log("Alphabet");
+        }else {
+            console.log("Not alphabet");
+        }
+  
+   // Check alphabet vowel or consonant
+     var alpha= "d";
+     if (alpha=="a"|| alpha=="e"|| alpha=="i" || alpha=="o" || alpha=="u" || alpha=="A"|| alpha=="E"|| alpha== "O" || alpha== "U"){
+       console.log("It is Vowel");
+     }
+     else {
+        console.log("It is Consonant");
+     }
+       
+
+    // check alphabet, digit, Special character
+
+    var x='*';
+    if((x >= 'a' && x <= 'z') || (x >= 'A' && x <= 'Z')){
+        console.log("It is Alphabet");
+    }
+    else if (x >= 0 || x<=9) {
+        console.log("It is Digit");
+    }else{
+        console.log("It is Special Character");
+    }
+    
+  // check Uppercase and lowercase
+    var x='S';
+    if((x >= 'a' && x <= 'z')){
+        console.log("It is Lowercase");
+    }
+    else if (x >= 'A' && x <= 'Z') {
+        console.log("It is Uppercase");
+    }
+
+  // week number and week day
+  
+    var x= "5";
+      if (x==1){
+        console.log("x is Monday");
+      }
+      else if (x==2) {
+            console.log("x is Tuesday");
+      }
+      else if (x==3) {
+         console.log("x is Wednesday");
+      }
+      else if (x==4) {
+          console.log("x is Thursday");
+      }
+      else if (x==5) {
+          console.log("x is Friday");
+      }
+      else if (x==6) {
+        console.log("x is Saturday");
+      }
+      else if (x==7) {
+         console.log("x is Sunday");
+      }
+      else {
+         console.log("not valid");
+      }
+  //check month number and number of days in month
+   
+    var x="2";
+    if (x== 1|| x== 3|| x==5 || x==7 || x==8 || x==10 || x==12) {
+        console.log("Number of days in this month are 31");
+    }
+    else if (x==4 || x==6 || x==9 || x== 11) {
+        console.log("Number of days in this month are 30");
+    }
+    else if (x==2) {
+        console.log("Number of days in this month are 28 or 30");
+    }
+  //triangle is valid or not
+
+   var x=33, y=33, z= 114;
+    if (x + y + z == 180) {
+        console.log("Given triangle is valid");
+    }
+    else {
+        console.log("Given triangle is not valid");
+    }
+// check triangle is equilateral, isosceles and scalene triangle
+
+   var x= 33, y= 33, z= 114;
+      if (x == y && y == z) {
+        console.log("Triangle is Equilateral");
+      }
+      else if (x == y || y == z || x == z) {
+        console.log("Triangle is Isoscales");
+      }
+      else {
+        console.log("Triangle is Scalene");
+      }
+    // calculate profit & loss
+      var sp= 1200, cp= 1000;
+       if (sp > cp ){
+          amnt= sp - cp;
+          console.log("Profit of "+amnt);
+       }
+       else if (sp < cp) {
+          amnt= sp-cp;
+          console.log("Loss of"+amnt);
+       }
+       else {
+          console.log("No profit no loss");
+       }
+
+    //input marks of 4 subjects
+
+    var a= 90, b= 88, c=75, d= 66, e= 88;
+     f=a+b+c+d+e;
+     t= (f / 5);
+     if (t>=90) {
+           console.log("Grade A for"+ t + "%");
+     } 
+     else if (t>=80 && t< +90) {
+           console.log("Grade B for"+ t + "%");
+     }
+     else if (t>=70 && t< +80) {
+           console.log("Grade C for"+ t + "%");
+     }
+     else if (t>=60 && t<+70) {
+            console.log("Grade D for"+ t + "%");
+     }
+     else if (t>40 && t<+ 60) {
+            console.log("Grade E for"+ t + "%");
+     }
+     else if (t>= 40) {
+            console.log("Grade F for"+ t + "%");
+     }
+
+  // calculate employee gross sallery
+      var x=15000;
+        if (x <=10000) {
+           da  = x * 0.8;  //daily allowance
+           hra = x * 0.2;  //house rent allowance
+        }
+        else if (x <= 20000){
+            da  = x * 0.9;
+            hra = x *0.25;    
+        }
+        else {
+            da  = x * 0.95;
+            hra = x * 0.3;
+        }
+        sal = x + da + hra;
+        console.log("Gross salary is: "+sal);
+
+    // calculate total elctricity bill
+    
+    let unit = 70, total=0;
+      if (unit <= 50) {
+          total= unit* 0.5;
+      }
+      else if (unit >=51 && unit <=150) {
+           total = 50* 0.5 + (unit-50)* 0.75;
+      }
+      else if (unit >=151 && unit <=250) {
+           total = (50* 0.5) + (100* 0.75)+ (unit- 150) * (1.2);
+      }
+      else if ( unit >= 251) {
+          total= (50* 0.5) + (100* 0.75) + (100+ 1.2) + ((unit- 250) * 1.5);
+      }
+      total = total +total* 0.2;
+       console.log("Total bill is :"+ total);
+
+   
+
+   
+
+
+
+  </script> 
+
+</body>
+</html>

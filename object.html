@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array and Object</title>
+</head>
+<body>
+  <!-- <h1>Array and Object</h1> -->
+    <table>
+       <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Age</th>
+       </tr>
+
+     <tbody id="mydt">
+         
+     </tbody>
+
+    </table>
+
+       
+   <!-- <p id="result"></p> -->
+   <!-- <p id="result2"></p> -->
+    <script>
+        //object
+    //     let person=  {"fname": "John",
+    //     "lname": "Doe", "age": "41", "city": "Landon"
+    // };
+    // console.log(person.fname);
+    // console.log(person["lname"]);
+
+   // array
+
+    //   let fruits= ["Apple", "Mango","Banana", "kiwi"];
+    //      console.log(fruits[2]);
+    //       let i= 0;
+    //        while (i<= 3) {
+    //           console.log(fruits[i]);
+    //           i++;
+    //        }
+  
+    // for each
+    // work only with array
+    // let person= { "fname": "John", "lname": "Doe", "Age": "41", "city": "Landon"};// will not work bcoz its an object
+    //   person.forEach(myfun);
+    //      function myfun(val, index, arr) {
+    //         console.log(val);
+    //      }
+
+         
+  // // array
+    //   let fruits= ["Apple", "Mango","Banana", "kiwi"]; // work with array
+    //   fruits.forEach(myfun); // method 1
+    //     function myfun(val, index, arr) {
+    //         console.log(val);
+    //     }
+
+    // let fruits= ["Apple", "Mango","Banana", "kiwi"];
+    //  fruits.forEach(function(val, index, arr){
+    //     console.log(val); // method 2    (anonymus function)
+    //  });
+
+ // for in (work on both)  // object
+    // let person= { "fname": "John", "lname": "Doe", "Age": "41", "city": "Landon"};
+    //    for (let x in person) {
+    //       console.log(x);
+    //       console.log(person [x]);
+    //    }
+   // for in (array)
+    // let fruits= ["Apple", "Mango","Banana", "kiwi"];
+    //   for (let x in fruits) {
+    //     console.log(x);
+    //     console.log(fruits [x]);
+    //   }
+
+    // for off (only work in array)
+    // object 
+    // for off (no run)
+    // let person= { "fname": "John", "lname": "Doe", "Age": "41", "city": "Landon"};
+    //   for (let x of person) {
+    //     console.log(x);
+    //     console.log(fruits [x]);
+    //   }
+    
+    // array (run)
+    // for off
+    //   let fruits= ["Apple", "Mango","Banana", "kiwi"];
+    //      for (let x of fruits) {
+    //         console.log(x);
+    //      }
+
+    // example of for of loop
+//    let str = "<ul>";
+//     let fruits= ["Apple", "Kiwi", "Mamgo", "Banana"];
+//       for (let x of fruits){
+//         str += "<li>" + x + "</li>";
+//       }
+//       str += "</ul>";
+//       document.getElementById("result").innerHTML=str;
+
+
+// object array
+// for off
+
+//    let objarr=[
+//       {"fname": "Daniya", "lname": "Ansari", "age": "21", "city": "Landon"},
+//       {"fname": "Azra", "lname": "Anjum", "age": "42", "city": "Kamptee"},
+//       {"fname": "Naashra", "lname": "Akhtar", "age": "24", "city": "Nagpur"},
+//       {"fname": "Umra", "lname": "Khan", "age": "18", "city": "Mumbai"}];
+//         // console.log(objarr[1].lname);
+
+// for (i=0; i<= 3; i++) {
+//        console.log(objarr[i].fname+" " +objarr[i].lname+ " " +objarr[i].age);
+// }
+
+//   let str= ""
+  
+//    for (i=0; i<= 3; i++){
+//        str+="<h2>fname="+objarr[i].fname+"lname="+objarr[i].lname+"age="+objarr[i].age+"</h2>";
+//    }
+//           document.getElementById("result2").innerHTML=str;
+
+
+//      let str = "<h2>";
+// //       
+//        for (let x of objarr) {
+//            str +="<h2> fname=" + x.fname+"lname="+x.lname+ "age="+x.age+"</h2>";
+//        }
+         
+//        document.getElementById("result2").innerHTML=str;
+
+
+  let objarr= [
+          {"fname": "Daniya", "lname": "Khan", "age": 21},
+          {"fname": "Azra", "lname": "Anjum", "age": 21},
+          {"fname": "Azra", "lname": "Anjum", "age": 21}];
+          
+          let str= "<table>";
+            for (i=0; i<=2; i++){
+              str+="<tr>"+ "<td>" + objarr[i].fname+"</td>"+ "<td>"+objarr[i].lname+"</td>"+"<td>"+ objarr[i].age+"</td>"+  "</tr>"
+            };
+            str+="</table>"
+            document.getElementById("mydt").innerHTML=str;
+
+
+    </script>
+    
+</body>
+</html>

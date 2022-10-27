@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+</head>
+<body>
+    <h2>Functions</h2>
+    <script>
+  // show function
+         function show() {
+             console.log("This is show function");
+         }
+         show();
+         show();
+         show();
+    </script>
+
+ <!-- without parameter without return value -->
+    <script>
+    function add(){
+        let x, y, z;
+        x= 9;
+        y= 2;
+        z= x+y;
+        console.log("Addition is " +z);
+    }
+    add();
+    </script>
+
+    <!-- with parameter without return value -->
+    <script>
+         function add(x,y) {
+            let z;
+            z= x + y;
+            console.log("Addition is "+z);
+        }
+        add (3, 4);
+        let a= 2, b= 8;
+        add(a,b);
+    </script>
+
+    <!--  without parameter with return value -->
+     <script>
+       function add() {
+         let z, x, y;
+          x= 9, 
+          y= 7;
+          z= x + y;
+          return z;
+       }
+       let c;
+       c= add();
+       console.log("Addition is "+c);
+     </script>
+
+    <!--  with parameter with return value -->
+     <script>
+        function add(x, y){
+            let z;
+            z= x+ y;
+            return z;
+           
+        }
+        let v;
+        let m= 2, n= 4;
+         v=add(m,n); 
+        console.log("addition " +v);
+
+     </script>
+</body>
+</html>

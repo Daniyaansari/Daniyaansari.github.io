@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ternary Task</title>
+    <style>
+        .container,.container2 {
+            height: 200px;
+            width: 250px;
+            margin:  auto;
+            
+        }
+        button {
+            background-color: brown;
+            padding: 10px 8px;
+            color: white;
+            border: transparent;
+        }
+        #f1,#f2,#f3,#f4,#f5 {
+            width: 100%;
+            height: 30px;
+        }
+
+    </style>
+</head>
+<body> 
+    <!-- With two variables -->
+    <div class="container">
+     <div class="row">
+        <h2>Find Numbers (Which greater & which small)</h2>
+    <input type="number" placeholder="Enter Number" id="f1"><br><br>
+    <input type="number" placeholder="Enter Number" id="f2"><br><br>
+    </div>
+    <div class="row2">
+    <button onclick="grt()">Find Greatest No.</button>
+    <button onclick="sml()">Find Smallest No.</button> 
+    </div>
+    <p id="res"></p>
+    <br>
+    </div>
+    <br><br><br>
+
+
+    <!-- With three varibles -->
+      <div class="container2">
+         <div class="row3">
+            <h2>Find Numbers (Which greater & which small)</h2>
+     <input type="number" placeholder="Enter Number" id="f3"><br><br>
+     <input type="number" placeholder="Enter Number" id="f4"><br><br>
+     <input type="number" placeholder="Enter Number" id="f5"><br><br>
+         </div>
+         <div class="row4">
+             <button onclick="num1()">Find Greatest No.</button>
+             <button onclick="num2()">Find Smallest No.</button>
+         </div>
+        <p id="result"></p>
+        </div>
+       <script>
+
+        function grt() {
+            var x, y, z;
+            x= parseInt(document.getElementById('f1').value);
+            y= parseInt(document.getElementById('f2').value);
+            z=(x > y ? x : y);
+            document.getElementById('res').innerHTML="Greater number is: "+z;
+            
+        }
+        function sml(){
+            var x, y, z;
+            x= parseInt(document.getElementById('f1').value);
+            y= parseInt(document.getElementById('f2').value);
+            z= (x < y ? x: y);
+            document.getElementById('res').innerHTML="Smaller number is: "+z;
+        } 
+    </script>
+    
+    <!-- 3 varibles -->
+       <script>
+          
+          function num1() {
+            var a, b, c;
+            a= parseInt(document.getElementById('f3').value);
+            b= parseInt(document.getElementById('f4').value);
+            c= parseInt(document.getElementById('f5').value);
+            d = (a > b ? (a > c ? a : c) : (b > c ? b : c));
+            document.getElementById('result').innerHTML="Greater Number is: "+d
+          }
+
+          function num2() {
+            var a, b, c;
+            a= parseInt(document.getElementById('f3').value);
+            b= parseInt(document.getElementById('f4').value);
+            c= parseInt(document.getElementById('f5').value);
+            d= (a < b ? (a < c ? a : c): (b < c ? b : c));
+            document.getElementById('result').innerHTML= "Smaller Number is "+d;
+          }
+
+       </script>
+
+    
+    
+</body>
+</html>

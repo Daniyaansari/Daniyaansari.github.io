@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First js</title>
+</head>
+<body>
+    <h2>Inner HTML</h2>
+    <p id="demo">This is pagraph</p>
+    <h2>OnClick</h2>
+    <p id="mypara">This is my Para</p>
+    <button onclick="show()">Click</button><br><br>
+    <h2>Change Image</h2>
+    <img src="computer.jpg" height="300" id="myimg" width="300"><br><br><br>
+    <button onclick="changing()">Change Image</button><br><br>
+    <button onclick="dispc()">Click</button><br><br>
+    <p id="mypara2">THIS IS PARA.</p>
+    <h2>Console log</h2>
+    <button onclick="document.getElementById('mypara2').innerHTML('inline js')">Click</button>
+    <h2>Alert</h2>
+    <button onclick="alert('Hello js')">CLICK</button> <br><br>
+
+    <!-- <button onclick="changebg()">change bg</button>
+    <div id="chng" style="background-color: red;">kjss</div> -->
+    
+    <script>
+
+        // function changebg(){
+        //     document.getElementById("chng").style.backgroundColor="black";
+        // }
+        // inner html
+        document.getElementById("demo").innerHTML="changed by js";
+    // onclick
+        function show() {
+            document.getElementById("mypara").innerHTML= "changed after click";
+            document.getElementById("mypara").style.color="white";
+            document.getElementById("mypara").style.backgroundColor="black";
+            document.getElementById("mypara").style.padding="20px";
+        }
+        // change img
+        function changing(){
+            document.getElementById("myimg").src= "paris.jpg";
+        }
+
+        function dispc(){
+            document.write("HELLO WORLD");
+            alert("Hello Js");
+            console.log("This is console log");
+        }
+        document.write("daniya ansari");
+
+        
+    </script>
+    <script src="demo.js"></script>
+    <button onclick="display()">Display</button>
+    
+</body>
+</html>

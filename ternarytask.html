@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ternary Task</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h2>Enter Number</h2>
+            <input type="number" placeholder="Enter number" id="x">
+            <input type="number" placeholder="Enter number" id="y">
+         </div>
+
+         <div class="row">
+            <button onclick="fun()">Greater No.</button>
+            <button onclick="fun()">Smaller No.</button>
+         </div>
+    </div>
+    <p id="res"></p>
+    <script>
+       let a=45, b=15;
+       (a > b ? console.log('a is grt'):console.log('b is grt'));
+
+       function fun() {
+         let a,b;
+         a = document.getElementById('x').value;
+         b = document.getElementById('y').value;
+         (a > b ? document.getElementById('res').innerHTML= a : document.getElementById('res').innerHTML = b );
+       }
+       
+    </script>
+    
+</body>
+</html>

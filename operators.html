@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operators</title>
+</head>
+<body>
+    <h2>Operators</h2>
+    <script>
+        // Arithmatic Operators
+        var x=17, y=7, z;
+        z=x/y;
+        console.log(z);
+
+        //solution is 3 (remainder of x / y: 17/ 7:3)
+        z=x%y;
+        console.log(z);
+        
+        //** is just Power Symbol ^
+        var x= 2, y=3;   // 2*2*2  (4*2=8)
+        var z=x**y;
+        console.log(z);
+
+        //ternary/ conditional operators
+        // condition ? true : false
+        //greater value
+        var x=7, y=3, z;
+        z=(x > y ? x : y);
+        console.log("Greater value: "+z);
+
+        //less value 
+        var x = 7, y = 5, z;
+        z = (x < y ? x : y);
+        console.log("Smaller value: "+z);
+
+        //greater value with 3 var
+        var x= 999, y= 20, z= 40, d;
+       d = (x > y ? (x > z ? x : z) : (y > z ? y : z));
+        console.log("Greater value: "+d);
+
+        //smaller value with 3 var
+        var x= 15, y= 7, z= 10, d;
+        d= (x < y ? (x < z ? x : z) : (y < z ? y : z)); 
+        console.log("Smaller value"+d);
+
+        var x=10, y=17;
+        (x > y ? console.log("Greater value :x is"+x): console.log("Greater value:y is "+y));
+
+        var x=10, y=13, z=8,d;
+        d=(x>y && x>z?x: (y>x && y>x && y>z?y:z));
+        console.log("grater no="+d);
+
+
+        var x=2, y=3, z;
+        z=x++;
+        // z=++x;
+        console.log("x="+x+"z="+z);
+
+        var x=2, y=3, z;
+        z=++x;
+        console.log("x="+x+"z="+z);
+
+
+        var x=10, y;
+        y= -x;
+        console.log("x="+x);
+        console.log("y="+y);
+
+        
+        var x="10", y;
+        y= +x;
+        console.log("x="+x);
+        console.log("y="+y);
+        console.log(typeof(x));
+        console.log(typeof(y));
+
+    </script>
+</body>
+</html>

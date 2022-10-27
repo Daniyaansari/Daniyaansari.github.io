@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=1, initial-scale=1.0">
+    <title>Get Set</title>
+</head>
+<body>
+    <h1>Get Set</h1>
+    <script>
+      var person= {
+        "fname": "john",
+        "age" : "21",
+        getage : function(){
+            return this.age
+        },
+        get getage1() {
+             return this.age;
+        },
+        setage:function(a){
+            this.age= a;
+        },
+        set age1(a) {
+            this.age= a;
+        }
+      };
+
+      console.log(person.age);
+      console.log(person.getage());
+      console.log(person.getage1);
+      person.setage(42);
+      console.log(person.age);
+      person.age1 = 39;
+      console.log(person.age);
+    </script>
+</body>
+</html>

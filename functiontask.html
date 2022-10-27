@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Task 2</title>
+    <style>
+        body {
+            background-color: lightpink;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            height: 300px;
+            width: 300px;
+            margin: auto;
+            margin-top: 60px;
+            background-color: bisque;
+            padding: 50px;
+            border-radius: 5px;
+        }
+        label {
+            font-size: 25px;
+            
+        }
+        input {
+            width: 100%;
+            height: 35px;
+            margin: 10px 0;
+        }
+        button {
+            width: 100%;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background-color: brown;
+            border-color: transparent;
+            color: white;
+        }
+        
+    </style>
+</head>
+<body>
+
+     <div class="container">
+    <label for="">Enter Two Numbers</label>
+     <input type="text" id="num1">
+     <input type="text" id="num2">
+
+     <label for="">Enter Any Numbers Between 1 to 4</label>
+     <input type="text" id="method">
+     <button onclick="calculate()">Calculate</button>
+      <p id="result"></p>
+      </div>
+      
+       <script>
+    // function calculate
+     function calculate() {
+
+        var d = parseInt(document.getElementById("method").value)
+        switch (d){
+          case 1 : add();
+          break;
+
+          case 2 : sub();
+          break;
+
+          case 3 : mul();
+          break;
+
+          case 4 : div();
+          break;
+
+          default : invalid();
+          break;
+        }
+     }
+    // Addition
+      function add() {
+      var a, b, c;
+      a = parseInt(document.getElementById("num1").value);
+      b = parseInt(document.getElementById("num2").value);
+      c = a + b;
+      document.getElementById("result").innerHTML= "Sum of your numbers is " +c;
+
+      }
+
+    // Subtraction
+    function sub(){
+    var a, b, c;
+    a = parseInt(document.getElementById("num1").value);
+    b = parseInt(document.getElementById("num2").value);
+    c = a - b;
+    document.getElementById("result").innerHTML= "Sum of your numbers is "+c;
+
+    }
+
+    // Multiplication
+    function mul(){
+    var a, b, c;
+    a = parseInt(document.getElementById("num1").value);
+    b = parseInt(document.getElementById("num2").value);
+    c = a * b;
+    document.getElementById("result").innerHTML= "Sum of your numbers is "+c;
+
+    }
+
+    // Division
+    function div(){
+    var a, b, c;
+    a = parseInt(document.getElementById("num1").value);
+    b = parseInt(document.getElementById("num2").value);
+    c = a / b;
+    document.getElementById("result").innerHTML= "Sum of your numbers is "+c;
+
+    }
+
+    // function invalid
+      function invalid(){
+        document.getElementById("result").innerHTML = "Invalid Number Select between 1, 2, 3, 4";
+      }
+
+      </script>
+    
+</body>
+</html>
